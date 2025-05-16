@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: retail-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: retail
+  template:
+    metadata:
+      labels:
+        app: retail
+    spec:
+      containers:
+      - name: retail-container
+        image: abc-retail-app:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+
