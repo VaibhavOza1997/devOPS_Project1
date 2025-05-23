@@ -1,0 +1,54 @@
+oza@VaibhavROG:~/devOPS_Project1$ kubectl describe pod retail-app-5bf7f67cb4-r528m
+Name:             retail-app-5bf7f67cb4-r528m
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             minikube/192.168.49.2
+Start Time:       Fri, 16 May 2025 07:11:27 -0400
+Labels:           app=retail
+                  pod-template-hash=5bf7f67cb4
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.7
+IPs:
+  IP:           10.244.0.7
+Controlled By:  ReplicaSet/retail-app-5bf7f67cb4
+Containers:
+  retail-container:
+    Container ID:   docker://f6e9c6a1c5d0e95d84628d4fd4af73751572e502eadcdedb3af8709a10b48352
+    Image:          abc-retail-app:latest
+    Image ID:       docker://sha256:afcd94983e6dfb4e3413e4aee4b061343aa3835880750d56faf13bd1648c434d
+    Port:           8080/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Tue, 20 May 2025 10:56:20 -0400
+    Last State:     Terminated
+      Reason:       Error
+      Exit Code:    255
+      Started:      Fri, 16 May 2025 07:11:28 -0400
+      Finished:     Tue, 20 May 2025 10:56:03 -0400
+    Ready:          True
+    Restart Count:  1
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-pgfdc (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True
+  Initialized                 True
+  Ready                       True
+  ContainersReady             True
+  PodScheduled                True
+Volumes:
+  kube-api-access-pgfdc:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:                      <none>
+oza@VaibhavROG:~/devOPS_Project1$

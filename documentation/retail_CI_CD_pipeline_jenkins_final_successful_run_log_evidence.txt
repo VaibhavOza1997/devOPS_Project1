@@ -1,0 +1,158 @@
+Started by user Vaibhav Oza
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/lib/jenkins/workspace/RetailCICD
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Checkout)
+[Pipeline] checkout
+The recommended git tool is: NONE
+Warning: CredentialId "github-pat" could not be found.
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/RetailCICD/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/VaibhavOza1997/devOPS_Project1.git # timeout=10
+Fetching upstream changes from https://github.com/VaibhavOza1997/devOPS_Project1.git
+ > git --version # timeout=10
+ > git --version # 'git version 2.43.0'
+ > git fetch --tags --force --progress -- https://github.com/VaibhavOza1997/devOPS_Project1.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision 9f454032be2a36118655eab5df81ddf055f72d34 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 9f454032be2a36118655eab5df81ddf055f72d34 # timeout=10
+Commit message: "Add Ansible playbook to run Docker container"
+ > git rev-list --no-walk 9f454032be2a36118655eab5df81ddf055f72d34 # timeout=10
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] sh
++ mvn clean package
+[[1;34mINFO[m] Scanning for projects...
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------------------< [0;36mcom.abc:ABCtechnologies[0;1m >-----------------------[m
+[[1;34mINFO[m] [1mBuilding RetailModule 1.0[m
+[[1;34mINFO[m] [1m--------------------------------[ war ]---------------------------------[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-clean-plugin:2.5:clean[m [1m(default-clean)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Deleting /var/lib/jenkins/workspace/RetailCICD/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.6:prepare-agent[m [1m(jacoco-initialize)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/var/lib/jenkins/.m2/repository/org/jacoco/org.jacoco.agent/0.8.6/org.jacoco.agent-0.8.6-runtime.jar=destfile=/var/lib/jenkins/workspace/RetailCICD/target/jacoco.exec
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:resources[m [1m(default-resources)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/RetailCICD/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:compile[m [1m(default-compile)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 3 source files to /var/lib/jenkins/workspace/RetailCICD/target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-resources-plugin:2.6:testResources[m [1m(default-testResources)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Using 'UTF-8' encoding to copy filtered resources.
+[[1;34mINFO[m] skip non existing resourceDirectory /var/lib/jenkins/workspace/RetailCICD/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-compiler-plugin:3.1:testCompile[m [1m(default-testCompile)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Changes detected - recompiling the module!
+[[1;34mINFO[m] Compiling 1 source file to /var/lib/jenkins/workspace/RetailCICD/target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-surefire-plugin:2.12.4:test[m [1m(default-test)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Surefire report directory: /var/lib/jenkins/workspace/RetailCICD/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running com.abc.dataAccessObject.ProductImpTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 sec
+
+Results :
+
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
+
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmaven-war-plugin:3.2.2:war[m [1m(default-war)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Packaging webapp
+[[1;34mINFO[m] Assembling webapp [ABCtechnologies] in [/var/lib/jenkins/workspace/RetailCICD/target/ABCtechnologies-1.0]
+[[1;34mINFO[m] Processing war project
+[[1;34mINFO[m] Copying webapp resources [/var/lib/jenkins/workspace/RetailCICD/src/main/webapp]
+[[1;34mINFO[m] Webapp assembled in [120 msecs]
+[[1;34mINFO[m] Building war: /var/lib/jenkins/workspace/RetailCICD/target/ABCtechnologies-1.0.war
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco-maven-plugin:0.8.6:report[m [1m(jacoco-site)[m @ [36mABCtechnologies[0;1m ---[m
+[[1;34mINFO[m] Loading execution data file /var/lib/jenkins/workspace/RetailCICD/target/jacoco.exec
+[[1;34mINFO[m] Analyzed bundle 'RetailModule' with 2 classes
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  4.871 s
+[[1;34mINFO[m] Finished at: 2025-05-16T06:46:16-04:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Docker Build)
+[Pipeline] sh
++ docker build -t abc-retail-app .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 333B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/tomcat:9.0
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 7.13MB 0.1s done
+#4 DONE 0.1s
+
+#5 [1/3] FROM docker.io/library/tomcat:9.0@sha256:4dd253f9ef286348f1ef1c92c57d48f5ec52e79e134ada8a16af457e11714a1d
+#5 resolve docker.io/library/tomcat:9.0@sha256:4dd253f9ef286348f1ef1c92c57d48f5ec52e79e134ada8a16af457e11714a1d 0.1s done
+#5 DONE 0.1s
+
+#6 [2/3] RUN rm -rf /usr/local/tomcat/webapps/*
+#6 CACHED
+
+#7 [3/3] COPY target/ABCtechnologies-1.0.war /usr/local/tomcat/webapps/ROOT.war
+#7 DONE 0.1s
+
+#8 exporting to image
+#8 exporting layers
+#8 exporting layers 0.5s done
+#8 exporting manifest sha256:44a857ebcf71b5202f6ac0e35e1c4b94c2b20c8420bbb9a970979fd68b2031bf 0.0s done
+#8 exporting config sha256:afcd94983e6dfb4e3413e4aee4b061343aa3835880750d56faf13bd1648c434d 0.0s done
+#8 exporting attestation manifest sha256:3c382455f2a732e6bcf15d817f8cf9e3035547937f1a2b227e5a0689beb83013 0.0s done
+#8 exporting manifest list sha256:7438f98d5d8538e9f2e7155585642b1dec14bab85ef4937e2a1c7ab1f95dccb2 0.0s done
+#8 naming to docker.io/library/abc-retail-app:latest done
+#8 unpacking to docker.io/library/abc-retail-app:latest 0.1s done
+#8 DONE 0.7s
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Run with Ansible)
+[Pipeline] sh
++ ansible-playbook ansible/run_docker.yml
+[WARNING]: No inventory was parsed, only implicit localhost is available
+[WARNING]: provided hosts list is empty, only localhost is available. Note that
+the implicit localhost does not match 'all'
+
+PLAY [Run Docker container from built image] ***********************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [localhost]
+
+TASK [Ensure Docker container is running] **************************************
+changed: [localhost]
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS
